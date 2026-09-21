@@ -4,6 +4,7 @@ import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, T
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CoffeCard from './components/CoffeCard';
+import CustomButton from './components/CustomButton';
 
 export default function App() {
   const [name, setName] = useState('');
@@ -45,6 +46,7 @@ export default function App() {
             <Text style={styles.featuredDescription}>Cremoso e delicioso</Text>
             <Text style={styles.featuredPrice}>R$ 12,90</Text>
           </View>
+          
           <Text style={styles.sectionTitle}>Nosso Cardápio</Text>
           <View style={styles.sectionCardContainer}>
             <CoffeCard 
@@ -80,10 +82,7 @@ export default function App() {
               onChangeText={setName}
               ></TextInput>
 
-
-              <TouchableOpacity style={styles.button} onPress={handleOrder}>
-                <Text style={styles.buttonText}>Fazer me pedido</Text>
-              </TouchableOpacity>
+              <CustomButton title='Fazer meu pedido' onPress={handleOrder}/>
               {message !== '' && (
                 <Text style={styles.messageText}>{message}</Text>
               )}
@@ -208,26 +207,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingHorizontal: 20,
     fontSize: 16,
-  },
-
-  button: {
-    width: "100%",
-    backgroundColor: "#c67c4e",
-    borderRadius: 30,
-    paddingVertical: 16,
-    paddingHorizontal: 30,
-    alignItems: "center",
-    marginTop: 20, 
-    shadowColor: "#c67c4e",
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.05,
-    elevation: 4
-  },
-  
-  buttonText: {
-    fontSize: 16,
-    fontWeight: "700",
-    color: "#fff",
   },
 
   footer: {
